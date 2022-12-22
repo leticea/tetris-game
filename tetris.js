@@ -111,7 +111,10 @@ let update = () => {
   } else {
     for (let k = 0; k < currentShape.template.length; k++) {
       for (let l = 0; l < currentShape.template.length; l++) {
-        
+        if (currentShape.template[k][l] == 0) continue;
+        gameMap[currentShape.getTruncedPosition().y + l][
+          currentShape.getTruncedPosition().x + k
+        ] = { imageX: currentShape.imageX, imageY: currentShape.imageY };
       }
     }
     currentShape = nextShape;
