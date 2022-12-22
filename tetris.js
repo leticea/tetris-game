@@ -29,15 +29,25 @@ class Tetris {
     return { x: Math.trunc(this.x), y: Math.trunc(this.y) };
   }
 
-  checkLeft() { }
+  checkLeft() {
+    return true;
+  }
 
   checkRight() { }
 
   moveRight() { }
 
-  moveLeft() { }
+  moveLeft() {
+    if (this.checkLeft()) {
+      this.x -= 1;
+    }
+  }
 
-  moveBottom() { }
+  moveBottom() {
+    if (this.checkBottom()) {
+      this.y += 1;
+    }
+  }
 
   changeRotation() { }
 }
