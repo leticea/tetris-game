@@ -107,6 +107,10 @@ let update = () => {
   if (gameOver) return;
   if (currentShape.checkBottom()) {
     currentShape.y += 1;
+
+  } else {
+    currentShape = nextShape;
+    nextShape = getRandomShape;
   }
 };
 
