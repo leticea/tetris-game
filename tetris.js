@@ -67,3 +67,15 @@ const shapes = [
     [0, 1, 1],
   ]),
 ];
+
+let gameMap;
+let gameOver;
+let currentShape;
+let nextShape;
+let score;
+
+let gameLoop = () => {
+  setInterval(update, 1000 / gameSpeed);
+  setInterval(draw, 1000 / framePerSecond);
+}
+
