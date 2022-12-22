@@ -111,6 +111,25 @@ let gameLoop = () => {
   }
  };
 
+ let drawCurrentTetris = () => {
+  for (let i = 0; i < currentShape.template.length; i++) {
+    for (let j = 0; j < currentShape.template.length; j++) {
+      if (currentShape.template[i][j] == 0) continue;
+      context.drawImage(
+        image,
+        currentShape.imageX,
+        currentShape.imageY,
+        imageSquareSize,
+        imageSquareSize,
+        Math.trunc(currentShape.x) * size + size * i,
+        Math.trunc(currentShape.y) * size + size * j,
+      );
+    }
+  }
+ };
+
+ let drawSquares = () => {};
+
  let draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBackground();
