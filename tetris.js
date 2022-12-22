@@ -7,7 +7,19 @@ class Tetris {
     this.y = 0;
   }
 
-  checkBottom() {}
+  checkBottom() {
+    for (let i = 0; i < this.template.length; i++) {
+      for (let j = 0; j < this.template.length; j++) {
+        if (this.template[i][j] == 0) continue;
+        let realX = i + this.getTruncedPosition().x;
+        let realY = i + this.getTruncedPosition().y;
+      }
+    }
+  }
+
+  getTruncedPosition() {
+    return {x: Math.trunc(this.x), y: Math.trunc(this.y)}
+  }
 
   checkLeft() {}
 
