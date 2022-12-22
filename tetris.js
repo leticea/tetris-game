@@ -12,7 +12,7 @@ class Tetris {
       for (let j = 0; j < this.template.length; j++) {
         if (this.template[i][j] == 0) continue;
         let realX = i + this.getTruncedPosition().x;
-        let realY = i + this.getTruncedPosition().y;
+        let realY = j + this.getTruncedPosition().y;
 
         if (realY + 1 >= squareCountY) {
           return false;
@@ -189,7 +189,7 @@ let drawSquares = () => {
   }
 };
 
-let drawNextShape = () => { };
+let drawNextShape = () => {};
 
 let draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -223,6 +223,21 @@ let resetVars = () => {
   nextShape = getRandomShape();
   gameMap = initialTwoDArr;
 };
+
+window.addEventListener("keydown", (event) => {
+  if (event.keyCode == 37) {
+    currentShape.moveLeft();
+    
+  } else if (event.keyCode == 38) {
+    currentShape.changeRotation();
+    
+  } else if (event.keyCode == 39) {
+    currentShape.moveRight();
+    
+  } else if (event.keyCode == 40) {
+    currentShape.moveBottom();    
+  }
+});
 
 resetVars();
 gameLoop();
