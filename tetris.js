@@ -13,12 +13,20 @@ class Tetris {
         if (this.template[i][j] == 0) continue;
         let realX = i + this.getTruncedPosition().x;
         let realY = i + this.getTruncedPosition().y;
+
+        if (realY + 1 >= squareCountY) {
+          return false;
+        }
+        if (gameMap[realY + 1][realX].imageX != -1) {
+          return false;
+        }
       }
     }
+    return true;
   }
 
   getTruncedPosition() {
-    return {x: Math.trunc(this.x), y: Math.trunc(this.y)}
+    return { x: Math.trunc(this.x), y: Math.trunc(this.y) };
   }
 
   checkLeft() {}
