@@ -80,12 +80,26 @@ let gameLoop = () => {
   setInterval(draw, 1000 / framePerSecond);
 };
 
- let update = () => {
+ let update = () => {};
 
+ let drawBackground = () => {
+  
  };
 
  let draw = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  drawBackground();
+  drawSquares();
+  drawCurrentTetris();
+  drawNextShape();
 
+  if (gameOver) {
+    drawGameOver();
+  }
+ };
+
+ let getRandomShape = () => {
+  return Object.create(shapes[Math.floor(Math.random() * shapes.length)])
  };
 
  let resetVars = () => {
@@ -101,6 +115,8 @@ let gameLoop = () => {
   score = 0;
   gameOver = false;
   currentShape = getRandomShape();
+  nextShape = getRandomShape();
+  gameMap = initialTwoDArr;
  };
 
  gameLoop();
