@@ -29,17 +29,17 @@ class Tetris {
     return { x: Math.trunc(this.x), y: Math.trunc(this.y) };
   }
 
-  checkLeft() {}
+  checkLeft() { }
 
-  checkRight() {}
+  checkRight() { }
 
-  moveRight() {}
+  moveRight() { }
 
-  moveLeft() {}
+  moveLeft() { }
 
-  moveBottom() {}
+  moveBottom() { }
 
-  changeRotation() {}
+  changeRotation() { }
 }
 
 const imageSquareSize = 24;
@@ -123,87 +123,105 @@ let update = () => {
 };
 
 let drawRect = (x, y, width, height, color) => {
-context.fillStyle = color;
-context.fillRect(x, y, width, height);
+  context.fillStyle = color;
+  context.fillRect(x, y, width, height);
 };
 
 let drawBackground = () => {
-drawRect(0, 0, canvas.width, canvas.height, "#bca0dc");
-for (let i = 0; i < squareCountX + 1; i++) {
-  drawRect(
-    size * i - whiteLineThickness,
-    0,
-    whiteLineThickness,
-    canvas.height,
-    "white"
-  );
-}
+  drawRect(0, 0, canvas.width, canvas.height, "#bca0dc");
+  for (let i = 0; i < squareCountX + 1; i++) {
+    drawRect(
+      size * i - whiteLineThickness,
+      0,
+      whiteLineThickness,
+      canvas.height,
+      "white"
+    );
+  }
 
-for (let i = 0; i < squareCountY + 1; i++) {
-  drawRect(
-    0,
-    size * i - whiteLineThickness,
-    canvas.width,
-    whiteLineThickness,
-    "white"
-  );
-}
+  for (let i = 0; i < squareCountY + 1; i++) {
+    drawRect(
+      0,
+      size * i - whiteLineThickness,
+      canvas.width,
+      whiteLineThickness,
+      "white"
+    );
+  }
 };
 
 let drawCurrentTetris = () => {
-for (let i = 0; i < currentShape.template.length; i++) {
-  for (let j = 0; j < currentShape.template.length; j++) {
-    if (currentShape.template[i][j] == 0) continue;
-    context.drawImage(
-      image,
-      currentShape.imageX,
-      currentShape.imageY,
-      imageSquareSize,
-      imageSquareSize,
-      Math.trunc(currentShape.x) * size + size * i,
-      Math.trunc(currentShape.y) * size + size * j,
-      size,
-      size
-    );
+  for (let i = 0; i < currentShape.template.length; i++) {
+    for (let j = 0; j < currentShape.template.length; j++) {
+      if (currentShape.template[i][j] == 0) continue;
+      context.drawImage(
+        image,
+        currentShape.imageX,
+        currentShape.imageY,
+        imageSquareSize,
+        imageSquareSize,
+        Math.trunc(currentShape.x) * size + size * i,
+        Math.trunc(currentShape.y) * size + size * j,
+        size,
+        size
+      );
+    }
   }
-}
 };
 
-let drawSquares = () => {};
+let drawSquares = () => {
+  for (let i = 0; i < gameMap.length; i++) {
+    let t = gameMap[i];
+    for (let j = 0; j < t.length; j++) {
+      if (t[j].imageX == -1) continue;
+      context.drawImage(
+        image,
+        t[j].imageX,
+        t[j].imageY,
+        imageSquareSize,
+        imageSquareSize,
+        j * size,
+        i * size,
+        size,
+        size
+      );
+    }
+  }
+};
 
-let drawNextShape = () => {};
+let drawNextShape = () => { };
 
 let draw = () => {
-context.clearRect(0, 0, canvas.width, canvas.height);
-drawBackground();
-drawSquares();
-drawCurrentTetris();
-drawNextShape();
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  drawBackground();
+  drawSquares();
+  drawCurrentTetris();
+  drawNextShape();
 
-if (gameOver) {
-  drawGameOver();
-}
+  if (gameOver) {
+    drawGameOver();
+  }
 };
 
 let getRandomShape = () => {
-return Object.create(shapes[Math.floor(Math.random() * shapes.length)]);
+  return Object.create(shapes[Math.floor(Math.random() * shapes.length)]);
 };
 
 let resetVars = () => {
-initialTwoDArr = [];
+  initialTwoDArr = [];
 
-for (let i = 0; i < squareCountY; i++) {
-  let temp = [];
-  for (let j = 0; j < squareCountX; j++) {
-    temp.push({ imageX: -1, imageY: -1 });
+  for (let i = 0; i < squareCountY; i++) {
+    let temp = [];
+    for (let j = 0; j < squareCountX; j++) {
+      temp.push({ imageX: -1, imageY: -1 });
+    }
+    initialTwoDArr.push(temp);
   }
-  initialTwoDArr.push(temp);
-}
-score = 0;
-gameOver = false;
-currentShape = getRandomShape();
-nextShape = getRandomShape();
-gameMap = initialTwoDArr;
+  score = 0;
+  gameOver = false;
+  currentShape = getRandomShape();
+  nextShape = getRandomShape();
+  gameMap = initialTwoDArr;
 };
 
 resetVars();
