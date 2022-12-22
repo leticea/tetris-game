@@ -82,8 +82,16 @@ let gameLoop = () => {
 
  let update = () => {};
 
+ let drawRect = (x, y, width, height, color) => {
+  context.fillStyle = color;
+  context.fillRect(x, y, width, height);
+ };
+
  let drawBackground = () => {
-  
+  drawRect(0, 0, canvas.width, canvas.height, "#bca0dc");
+  for (let i = 0; i < squareCountX + 1; i++) {
+    drawRect(size)
+  }
  };
 
  let draw = () => {
