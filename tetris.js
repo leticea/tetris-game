@@ -109,8 +109,13 @@ let update = () => {
     currentShape.y += 1;
 
   } else {
+    for (let k = 0; k < currentShape.template.length; k++) {
+      for (let l = 0; l < currentShape.template.length; l++) {
+        
+      }
+    }
     currentShape = nextShape;
-    nextShape = getRandomShape;
+    nextShape = getRandomShape();
   }
 };
 
