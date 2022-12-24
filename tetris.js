@@ -125,8 +125,10 @@ const size = 40;
 const framePerSecond = 24;
 const gameSpeed = 5;
 const canvas = document.getElementById("canvas");
+const nextShapeCanvas = document.getElementById("nextShapeCanvas");
 const image = document.getElementById("image");
 const context = canvas.getContext("2d");
+const nextContext = nextShapeCanvas.getContext("2d");
 const squareCountX = canvas.width / size;
 const squareCountY = canvas.height / size;
 
@@ -294,7 +296,10 @@ let drawSquares = () => {
   }
 };
 
-let drawNextShape = () => {};
+let drawNextShape = () => {
+  nextContext.fillStyle = "bca0dc";
+  nextContext.fillRect(0, 0, nextShapeCanvas.width, nextShapeCanvas.height);
+};
 
 let draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
