@@ -328,6 +328,12 @@ let drawScore = () => {
   scoreContext.fillText(score, 10, 50);
 };
 
+let drawGameOver = () => {
+  context.font = "64px Poppins";
+  context.fillStyle = "black";
+  context.fillText("Game Over!", 10, canvas.height / 2);
+};
+
 let draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBackground();
