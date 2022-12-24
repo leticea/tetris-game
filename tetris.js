@@ -30,6 +30,20 @@ class Tetris {
   }
 
   checkLeft() {
+    for (let i = 0; i < this.template.length; i++) {
+      for (let j = 0; j < this.template.length; j++) {
+        if (this.template[i][j] == 0) continue
+        let realX = i + this.getTruncedPosition().x;
+        let realY = i + this.getTruncedPosition().y;
+        if (realX - 1 < 0) {
+          return false;
+        }
+
+        if (gameMap[realY][realX - 1].imageX != -1) {
+          return false;
+        }
+      }
+    }
     return true;
   }
 
@@ -73,7 +87,7 @@ class Tetris {
       }
     }
   }
-}
+};
 
 const imageSquareSize = 24;
 const size = 40;
