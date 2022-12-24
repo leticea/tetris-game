@@ -55,7 +55,24 @@ class Tetris {
     }
   }
 
-  changeRotation() { }
+  changeRotation() {
+    let tempTemplate = [];
+    for (let i = 0; i < this.template.length; i++)
+      tempTemplate[i] = this.template[i].slice();
+    let n = this.template.length;
+    for (let layer = 0; layer < n / 2; layer++) {
+      let first = layer;
+      let last = n - 1 - layer;
+      for  (let i = first; i < last; i++) {
+        let offset = i - first;
+        let top = this.template[first][i];
+        this.template[first][i] = this.template[i][last]; // top = right
+        this.template[i][last] = this.template[last][last - offset]; // right = bottom
+        this.template[last][last - offset] = this.template[last - offset][first]; // bottom = left
+        this.template[last - offset][first] = top; // left = top
+      }
+    }
+  }
 }
 
 const imageSquareSize = 24;
