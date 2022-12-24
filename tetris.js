@@ -320,6 +320,7 @@ let drawNextShape = () => {
 };
 
 let drawScore = () => {
+  scoreContext.clearRect(0, 0, scoreCanvas.width, scoreCanvas.height);
   scoreContext.font = "64px Poppins";
   scoreContext.fillStyle = "black";
   scoreContext.fillText(score, 10, 50);
