@@ -185,6 +185,16 @@ let gameLoop = () => {
   setInterval(draw, 1000 / framePerSecond);
 };
 
+let deleteCompleteRows = () => {
+  for (let i = 0; i < gameMap.length; i++) {
+    let t = gameMap[i];
+    let isComplete = true;
+    for (let j = 0; j < t.length; j++) {
+      
+    }
+  }
+};
+
 let update = () => {
   if (gameOver) return;
   if (currentShape.checkBottom()) {
@@ -199,8 +209,14 @@ let update = () => {
         ] = { imageX: currentShape.imageX, imageY: currentShape.imageY };
       }
     }
+
+    deleteCompleteRows();
     currentShape = nextShape;
     nextShape = getRandomShape();
+    if (!currentShape.checkBottom()) {
+      gameOver = true;
+    }
+    score += 10;
   }
 };
 
