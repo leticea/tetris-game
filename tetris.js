@@ -299,6 +299,11 @@ let drawSquares = () => {
 let drawNextShape = () => {
   nextContext.fillStyle = "bca0dc";
   nextContext.fillRect(0, 0, nextShapeCanvas.width, nextShapeCanvas.height);
+  for (let i = 0; i < nextShape.template.length; i++) {
+    for (let j = 0; j < nextShape.template.length; j++) {
+      
+    }
+  }
 };
 
 let draw = () => {
