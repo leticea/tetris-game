@@ -319,12 +319,19 @@ let drawNextShape = () => {
   }
 };
 
+let drawScore = () => {
+  scoreContext.font = "64px Poppins";
+  scoreContext.fillStyle = "black";
+  scoreContext.fillText(score, 10, 50);
+};
+
 let draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBackground();
   drawSquares();
   drawCurrentTetris();
   drawNextShape();
+  drawScore();
 
   if (gameOver) {
     drawGameOver();
