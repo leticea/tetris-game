@@ -80,6 +80,7 @@ class Tetris {
   moveBottom() {
     if (this.checkBottom()) {
       this.y += 1;
+      score += 1;
     }
   }
 
@@ -194,6 +195,7 @@ let deleteCompleteRows = () => {
     }
     if (isComplete) {
       console.log("complete row");
+      score += 100;
       for (let k = i; k > 0; k--) {
         gameMap[k] = gameMap[k - 1];
       }
