@@ -301,7 +301,18 @@ let drawNextShape = () => {
   nextContext.fillRect(0, 0, nextShapeCanvas.width, nextShapeCanvas.height);
   for (let i = 0; i < nextShape.template.length; i++) {
     for (let j = 0; j < nextShape.template.length; j++) {
-      
+      if (nextShape.template[i][j] == 0) continue;
+      nextContext.drawImage(
+        image,
+        nextShape.imageX,
+        nextShape.imageY,
+        imageSquareSize,
+        imageSquareSize,
+        size * i,
+        size * j + size,
+        size,
+        size
+      );
     }
   }
 };
