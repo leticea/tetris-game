@@ -190,7 +190,18 @@ let deleteCompleteRows = () => {
     let t = gameMap[i];
     let isComplete = true;
     for (let j = 0; j < t.length; j++) {
-      
+      if (t[j].imageX == -1) isComplete = false;
+    }
+    if (isComplete) {
+      console.log("complete row");
+      for (let k = i; k > 0; k--) {
+        gameMap[k] = gameMap[k - 1];
+      }
+      let temp = [];
+      for (let j = 0; j < squareCountX; j++) {
+        temp.push({ imageX: -1, imageY: -1 });
+      }
+      gameMap[0] = temp;
     }
   }
 };
