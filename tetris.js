@@ -126,9 +126,11 @@ const framePerSecond = 24;
 const gameSpeed = 5;
 const canvas = document.getElementById("canvas");
 const nextShapeCanvas = document.getElementById("nextShapeCanvas");
+const scoreCanvas = document.getElementById("scoreCanvas");
 const image = document.getElementById("image");
 const context = canvas.getContext("2d");
 const nextContext = nextShapeCanvas.getContext("2d");
+const scoreContext = scoreCanvas.getContext("2d");
 const squareCountX = canvas.width / size;
 const squareCountY = canvas.height / size;
 
