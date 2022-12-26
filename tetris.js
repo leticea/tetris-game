@@ -124,7 +124,7 @@ class Tetris {
 const imageSquareSize = 24;
 const size = 40;
 const framePerSecond = 24;
-const gameSpeed = 5;
+const gameSpeed = 5; // change the speed
 const canvas = document.getElementById("canvas");
 const nextShapeCanvas = document.getElementById("nextShapeCanvas");
 const scoreCanvas = document.getElementById("scoreCanvas");
@@ -195,7 +195,7 @@ let deleteCompleteRows = () => {
     }
     if (isComplete) {
       console.log("complete row");
-      score += 100;
+      score += 100; // change score
       for (let k = i; k > 0; k--) {
         gameMap[k] = gameMap[k - 1];
       }
@@ -301,7 +301,7 @@ let drawSquares = () => {
 };
 
 let drawNextShape = () => {
-  nextContext.fillStyle = "bca0dc";
+  nextContext.fillStyle = "#bca0dc";
   nextContext.fillRect(0, 0, nextShapeCanvas.width, nextShapeCanvas.height);
   for (let i = 0; i < nextShape.template.length; i++) {
     for (let j = 0; j < nextShape.template.length; j++) {

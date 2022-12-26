@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tetris Game</title>
+<html>
+  <head>
+    <title>Tetris Game</title>
     <style>
       button:hover {
         background-color: #bca0dc !important;
       }
-      
+
       button:active {
         background-color: #9969d0 !important;
       }
@@ -17,13 +13,15 @@
   </head>
   <body>
     <canvas id="canvas" width="400" height="800"></canvas>
+    
     <canvas 
       id="nextShapeCanvas" 
       width="200" 
       height="200"
-      style="position: absolute; top: 10"
+      style="position: absolute; top: 10;"
     >
     </canvas>
+
     <canvas 
       id="scoreCanvas" 
       width="200" 
@@ -31,6 +29,7 @@
       style="position: absolute; top: 220"
     >
     </canvas>
+
     <button
       style="
         width: 64px;
@@ -51,7 +50,8 @@
         ></path>
       </svg>
     </button>
-    <img id="image" src="rotations.png" style="display: none;"/>
+
+    <img id="image" src="rotations.png" style="display: none" />
     <script src="tetris.js"></script>
   </body>
 </html>

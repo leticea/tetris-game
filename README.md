@@ -8,30 +8,29 @@
 <br>
 
 <p align="center">
-  <img alt="store" src=".github/image.png">
+  <img alt="tetris" src=".github/image.png">
 </p>
 
-## PHP STORE
+## Tetris Game
 
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [PHP](https://www.php.net/) 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) 
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
 ## 💻 Projeto
 
-Projeto desenvolvido com PHP puro.
+Jogo muito bacana desenvolvido com JavaScript.
 
-Aula do canal [João Ribeiro](https://www.youtube.com/watch?v=gJz1yBqKHtM&list=PLXik_5Br-zO-tsUy1lTPB8dnPGBu8n0Ee&index=2)
+Aula do canal [Servet Gulnaroglu](https://www.youtube.com/watch?v=h1-zQ0SSS6M)
 
 ## 🚀 Como Rodar
 
 - Clone o projeto.
-- Entre no repositório e clique duas vezes no arquivo index.php
+- Entre no repositório e clique duas vezes no arquivo index.html.
 
 ## 🤔 Como contribuir
 
