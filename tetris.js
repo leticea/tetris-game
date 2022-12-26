@@ -229,7 +229,7 @@ let update = () => {
     if (!currentShape.checkBottom()) {
       gameOver = true;
     }
-    score += 10;
+    score += 10; // change score
   }
 };
 
