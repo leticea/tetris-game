@@ -32,7 +32,7 @@ class Tetris {
   checkLeft() {
     for (let i = 0; i < this.template.length; i++) {
       for (let j = 0; j < this.template.length; j++) {
-        if (this.template[i][j] == 0) continue
+        if (this.template[i][j] == 0) continue;
         let realX = i + this.getTruncedPosition().x;
         let realY = j + this.getTruncedPosition().y;
         if (realX - 1 < 0) {
@@ -50,7 +50,7 @@ class Tetris {
   checkRight() {
     for (let i = 0; i < this.template.length; i++) {
       for (let j = 0; j < this.template.length; j++) {
-        if (this.template[i][j] == 0) continue
+        if (this.template[i][j] == 0) continue;
         let realX = i + this.getTruncedPosition().x;
         let realY = j + this.getTruncedPosition().y;
         if (realX + 1 >= squareCountX) {
@@ -92,19 +92,20 @@ class Tetris {
     for (let layer = 0; layer < n / 2; layer++) {
       let first = layer;
       let last = n - 1 - layer;
-      for  (let i = first; i < last; i++) {
+      for (let i = first; i < last; i++) {
         let offset = i - first;
         let top = this.template[first][i];
         this.template[first][i] = this.template[i][last]; // top = right
         this.template[i][last] = this.template[last][last - offset]; // right = bottom
-        this.template[last][last - offset] = this.template[last - offset][first]; // bottom = left
+        this.template[last][last - offset] =
+          this.template[last - offset][first]; // bottom = left
         this.template[last - offset][first] = top; // left = top
       }
     }
 
     for (let i = 0; i < this.template.length; i++) {
       for (let j = 0; j < this.template.length; j++) {
-        if (this.template[i][j] == 0) continue
+        if (this.template[i][j] == 0) continue;
         let realX = i + this.getTruncedPosition().x;
         let realY = j + this.getTruncedPosition().y;
         if (
@@ -119,7 +120,7 @@ class Tetris {
       }
     }
   }
-};
+}
 
 const imageSquareSize = 24;
 const size = 40;
@@ -212,7 +213,6 @@ let update = () => {
   if (gameOver) return;
   if (currentShape.checkBottom()) {
     currentShape.y += 1;
-
   } else {
     for (let k = 0; k < currentShape.template.length; k++) {
       for (let l = 0; l < currentShape.template.length; l++) {
@@ -371,15 +371,12 @@ let resetVars = () => {
 window.addEventListener("keydown", (event) => {
   if (event.keyCode == 37) {
     currentShape.moveLeft();
-    
   } else if (event.keyCode == 38) {
     currentShape.changeRotation();
-    
   } else if (event.keyCode == 39) {
     currentShape.moveRight();
-    
   } else if (event.keyCode == 40) {
-    currentShape.moveBottom();    
+    currentShape.moveBottom();
   }
 });
 
